@@ -21,7 +21,7 @@ jobs:
       - name: Build frontend
         run: yarn build
       - name: Deploy frontend
-        uses: owner/repo@ref
+        uses: Hamza119612/shadowtalk@v1
         with:
           args: --prod
 
@@ -39,6 +39,6 @@ jobs:
       - name: Build backend
         run: yarn build
       - name: Deploy backend
-        uses: owner/repo@ref
+        uses: Hamza119612/shadowtalk@v1
         with:
           args: --prod
