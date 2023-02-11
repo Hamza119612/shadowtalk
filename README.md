@@ -93,88 +93,74 @@ ShadowTalk is a social media web application that allows users to share posts an
 
 ## API Reference
 
-### User Registration API
-- Method: POST
-- Endpoint: /api/users/register
-- Body:
-{
-"name": "User Name",
-"email": "user@example.com",
-"password": "password123"
-}
-- Description: This API is used to register a new user by providing a name, email and password. The API will return a success message if the registration is successful and an error message if it fails.
+### User Management
 
-#### Login User
+-   `POST /register` - Register a new user.
+-   `POST /login` - Log in an existing user.
+-   `PUT /profile` - Update the user's profile information.
+-   `GET /profile/:id` - Retrieve the profile information of the user with the given ID.
 
-- Method: POST
-- Endpoint: /api/users/login
-- Body:
-{
-"email": "user@example.com",
-"password": "password123"
-}
-- Description: This API is used to log in an existing user by providing an email and password. The API will return a JWT token if the login is successful and an error message if it fails.
+### Personalized Feed
 
-### Profile Management
+-   `GET /feed` - Retrieve the personalized feed for the authenticated user.
+-   `POST /post` - Create a new post.
+-   `DELETE /post/:id` - Delete a post with the given ID.
+-   `PUT /post/:id` - Update a post with the given ID.
+-   `GET /post/:id` - Retrieve a post with the given ID.
+-   `POST /post/:id/like` - Like a post with the given ID.
+-   `DELETE /post/:id/like` - Unlike a post with the given ID.
+-   `POST /post/:id/comment` - Comment on a post with the given ID.
+-   `DELETE /post/:id/comment/:commentId` - Delete a comment with the given ID on a post with the given ID.
 
-#### View Profile
+### Virtual Events
 
-- Method: GET
-- Endpoint: /api/profile
-- Description: This API is used to view the profile of the logged-in user. It requires an authorization token to be passed in the header.
+-   `GET /events` - Retrieve a list of all virtual events.
+-   `GET /event/:id` - Retrieve information about a virtual event with the given ID.
+-   `POST /event` - Create a new virtual event.
+-   `PUT /event/:id` - Update a virtual event with the given ID.
+-   `DELETE /event/:id` - Delete a virtual event with the given ID.
+-   `POST /event/:id/rsvp` - RSVP to a virtual event with the given ID.
 
-#### Update Profile
+### Multi-Language Support
 
-- Method: PUT
-- Endpoint: /api/profile
-- Body:
-{
-"name": "Updated User Name",
-"email": "updateduser@example.com"
-}
-- Description: This API is used to update the profile of the logged-in user. It requires an authorization token to be passed in the header.
+-   `GET /languages` - Retrieve a list of all supported languages.
+-   `POST /language` - Set the preferred language for the authenticated user.
 
-### Post Management
+### E-commerce Integration
 
-#### Create Post
+-   `GET /products` - Retrieve a list of all products.
+-   `GET /product/:id` - Retrieve information about a product with the given ID.
+-   `POST /product` - Create a new product.
+-   `PUT /product/:id` - Update a product with the given ID.
+-   `DELETE /product/:id` - Delete a product with the given ID.
+-   `POST /product/:id/purchase` - Purchase a product with the given ID.
 
-- Method: POST
-- Endpoint: /api/posts
-- Body:
+### Social Causes
 
-{
-"text": "This is my new post"
-}
-- Description: This API is used to create a new post by providing text. The API will return the created post if it is successful and an error message if it fails.
+-   `GET /causes` - Retrieve a list of all social causes.
+-   `GET /cause/:id` - Retrieve information about a social cause with the given ID.
+-   `POST /cause` - Create a new social cause.
+-   `PUT /cause/:id` - Update a social cause with the given ID.
+-   `DELETE /cause/:id` - Delete a social cause with the given ID.
+-   `POST /cause/:id/donate` - Donate to a social cause with the given ID.
 
-#### View Posts
+### Podcast Integration
 
-- Method: GET
-- Endpoint: /api/posts
-- Description: This API is used to view all posts.
+- `GET /podcasts` - Retrieve a list of all podcasts. This endpoint will return a list of all available podcasts, along with basic information such as the title, description, and author.
 
-#### View Post
+- `GET /podcast/:id` - Retrieve information about a podcast with the given ID. This endpoint will return detailed information about a specific podcast, including its title, description, author, and any associated content such as audio files or images.
 
-- Method: GET
-- Endpoint: /api/posts/:id
-- Description: This API is used to view a specific post by its ID.
+- `POST /podcast` - Create a new podcast. This endpoint will allow users to create a new podcast by submitting the necessary information, including the title, description, author, and any associated content.
 
-#### Update Post
+- `PUT /podcast/:id` - Update an existing podcast. This endpoint will allow users to modify an existing podcast by submitting updated information, such as changes to the title, description, author, or content.
 
-- Method: PUT
-- Endpoint: /api/posts/:id
-- Body:
-{
-"text": "This is my updated post"
-}
+- `DELETE /podcast/:id` - Delete a podcast. This endpoint will allow users to delete an existing podcast, removing it from the list of available podcasts.
 
-- Description: This API is used to update a specific post by its ID.
+### AI-based Chatbot
 
-#### Delete Post
+- `GET /chatbot` - Retrieve chatbot information. This endpoint will return information about the AI-based chatbot, including its capabilities and features.
 
-- Method: DELETE
-- Endpoint: /api/posts/:id
-- Description: This API is used to delete a specific post by its ID.
+- `POST /chatbot` - Interact with the chatbot. This endpoint will allow users to interact with the chatbot by submitting messages and receiving responses. The chatbot will use natural language processing and machine learning algorithms to generate its responses.
 
 
 ## Deployment
