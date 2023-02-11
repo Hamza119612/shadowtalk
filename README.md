@@ -30,7 +30,8 @@ ShadowTalk is a social media web application that allows users to share posts an
 - Social causes
 - Podcast integration
 - AI-based chatbot
-##APIs 
+
+## APIs 
 User Management:
 a. Register: Allows a new user to sign up with their basic information (username, password, email, etc.).
 b. Login: Allows an existing user to log in with their credentials.
